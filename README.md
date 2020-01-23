@@ -1,3 +1,5 @@
-# ATMS-597-SP-2020
+# AMS 597 Project 1 Group A
 
-This is the repository for ATMS 597 SN Weather and Climate Data Science.
+Group members: Jeffrey Thayer, Rose Miller, Carolina Bieri
+
+This is the README file for our submission. 
