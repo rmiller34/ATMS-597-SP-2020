@@ -1,4 +1,4 @@
-# ATMS 597 Project 1 Group A
+# ATMS 597 Project 1-Group A
 
 Group members: Jeffrey Thayer, Rose Miller, Carolina Bieri
 
