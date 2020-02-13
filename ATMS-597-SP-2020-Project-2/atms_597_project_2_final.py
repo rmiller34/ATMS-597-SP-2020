@@ -144,23 +144,21 @@ for i in numloops:
 
 len(resultsmax) # check the length of the results list to make sure we have the correct number of days
 
-# Put the results in a pandas dataframe
-dfmax = pd.DataFrame(resultsmax)
-dfmax.tail()
-dfmin = pd.DataFrame(resultsmin)
-dfmin.tail()
-
 """## Creates dataframe with just Date and TAVG"""
 
-#Clean up the TMIN data frame
+# Put data imported into pandas DataFrames
  
 df = pd.DataFrame(resultsmax)
 df2 = pd.DataFrame(resultsmin)
  
+# Change date columns to datetime format and make those columns the index
+
 df['date']= pd.to_datetime(df['date']) 
 df.index = df['date']
 df2['date']= pd.to_datetime(df2['date']) 
 df2.index = df2['date']
+
+# Clean up dataframes
 
 del df['datatype']
 del df['station']
@@ -168,14 +166,19 @@ del df['attributes']
 del df2['datatype']
 del df2['station']
 del df2['attributes']
-#del df['date']
+
+# Change column names
 
 df.columns = ['date','TMAX']
 df2.columns = ['date','TMIN']
+
+# Add TMIN column to TMAX dataframe & create a new column that displays the average temperature 
+# We no longer need df2 since all of our data is now in one dataframe
+
 df['TMIN'] = df2['TMIN']
 df['TAVG'] = ((df['TMIN'] + df['TMAX'])/2)
 
-df.to_csv('Project2.csv')
+# Clean up new dataframe so only the index (date) and TAVG columns exist
  
 del df['TMAX']
 del df['TMIN']
